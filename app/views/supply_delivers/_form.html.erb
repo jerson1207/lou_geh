@@ -1,0 +1,23 @@
+<%= form_with(model: supply_deliver) do |form| %>
+  <% if supply_deliver.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(supply_deliver.errors.count, "error") %> prohibited this supply_deliver from being saved:</h2>
+
+      <ul>
+        <% supply_deliver.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :company_id %>
+    <%# form.text_field :company_id %>
+    <%= form.select :company_id, options_for_select(@company.map {|c| c.id} ) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "create items" %>
+  </div>
+<% end %>

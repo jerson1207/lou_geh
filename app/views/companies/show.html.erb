@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<div class="company_header">
+  <h1><%= @company.name %></h1>
+  <h4>contact: <%= @company.contact %></h4>
+  <h4>Address: <%= @company.address %></h4>
+</div>
+
+<div class="company_history">
+  <table>
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Item id</th>
+        <th>quantity</th>
+        <th>Unit per price</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @supply.each do |h| %>
+      <% h.items.each do |i| %> 
+      <tr>
+        <td><%= h.created_at.strftime('%Y-%m-%d') %> </td>
+        <td><%= i.id %></td>
+        <td><%= i.quantity %></td>
+        <td><%= i.supply_deliver_id %></td>
+      </tr>
+      <% end %>
+    <% end %>      
+    </tbody>
+
+
+  </table>
+</div>
+
+
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Supply Delivers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Company</th>
+      <th>Total Item(s)</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @supply_delivers.each do |supply_deliver| %>
+      <tr>
+        <td><%= supply_deliver.company_id %></td>
+        <td><%= supply_deliver.company.name %></td>
+        <td><%= supply_deliver.items.count %></td>
+        <td><%= link_to 'Show', supply_deliver %></td>
+        <td><%= link_to 'Edit', edit_supply_deliver_path(supply_deliver) %></td>
+        <td><%= link_to 'Destroy', supply_deliver, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Supply Deliver', new_supply_deliver_path %>

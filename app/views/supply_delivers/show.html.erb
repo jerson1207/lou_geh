@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @supply_deliver.id %>
+  <%= @supply_deliver.company_id %>
+  <%= @supply_deliver.company.name %>
+</p>
+
+<h2>Add a Item:</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Product Code</th>
+        <th>quantity
+        <th>Cost Per Unit</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @supply_deliver.items.each do |i| %>
+      <tr>
+        <td><%= i.id %> </td>
+        <td><%= i.product_id %> </td>
+        <td><%= i.quantity %> </td>
+        <td><%= i.unit_per_cost %> </td>
+        <td><%= link_to 'delete', supply_deliver_item_path(i), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+
+      <tr>
+      <%= form_with model: [ @supply_deliver, @supply_deliver.items.build ] do |form| %>
+        <td><%= form.select :product_id, options_for_select(@product.map {|c| c.id} ) %></td>
+        <td><%= form.number_field :quantity %></td>
+        <td><%= form.number_field :unit_per_cost %></td>
+        <td><%= form.submit 'Add' %></td>
+      <% end %>
+      </tr>
+    </tbody>
+  
+  </table>
+
+
+<%= link_to 'Edit', edit_supply_deliver_path(@supply_deliver) %> |
+<%= link_to 'Back', supply_delivers_path %>
