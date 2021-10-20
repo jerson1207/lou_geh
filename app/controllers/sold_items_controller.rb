@@ -2,6 +2,7 @@ class SoldItemsController < ApplicationController
   def create
     @sale_transaction = SaleTransaction.find(params[:sale_transaction_id])
     @sold_item = @sale_transaction.sold_items.create(sold_item_params)
+   
     redirect_to sale_transaction_path( @sale_transaction)
  
   end

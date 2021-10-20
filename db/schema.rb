@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2021_10_19_224632) do
   end
 
   create_table "item_inventories", force: :cascade do |t|
-    t.string "quantity"
+    t.integer "quantity", default: 0
     t.integer "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
