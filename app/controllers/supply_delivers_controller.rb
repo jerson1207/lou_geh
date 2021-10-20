@@ -16,6 +16,7 @@ class SupplyDeliversController < ApplicationController
   def new
     @supply_deliver = SupplyDeliver.new
     @company = Company.all
+    @product = Product.all
   end
 
   # GET /supply_delivers/1/edit

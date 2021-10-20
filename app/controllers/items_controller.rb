@@ -3,8 +3,6 @@ class ItemsController < ApplicationController
     @supply_deliver = SupplyDeliver.find(params[:supply_deliver_id])
     @item = @supply_deliver.items.new(item_params)
     if @item.save
-      @quantity = ItemInventory.find_by(product_id: @item.product_id)
-      @quantity.quantity = @quantity.quantity + @item.quantity
       redirect_to supply_deliver_path( @supply_deliver)
     end
   end
