@@ -1,14 +1,17 @@
 <p id="notice"><%= notice %></p>
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %>
 
 <div class="company_header">
-  <h1><%= @company.name %></h1>
+  <h3>Campany Name: <%= @company.name %></h3>
   <h4>contact: <%= @company.contact %></h4>
   <h4>Address: <%= @company.address %></h4>
 </div>
 
 <div class="company_history">
-  <table>
+  <table class= "table">
     <thead>
+      <caption>Supply History</caption>
       <tr>
         <th>id</th>
         <th>Item id</th>
@@ -34,5 +37,3 @@
 </div>
 
 
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>

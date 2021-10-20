@@ -1,18 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Company:</strong>
-  <%= @supply_deliver.id %>
-  <%= @supply_deliver.company_id %>
-  <%= @supply_deliver.company.name %>
-</p>
-
-<h2>Add a Item:</h2>
-
-  <table>
+<%= link_to 'Edit company name', edit_supply_deliver_path(@supply_deliver) %> |
+<%= link_to 'Back', supply_delivers_path %>
+  <table class="table">
+    <caption><%= @supply_deliver.company.name %> Delivery Item</caption>
     <thead>
       <tr>
-        <th>id</th>
         <th>Product Code</th>
         <th>quantity
         <th>Cost Per Unit</th>
@@ -22,7 +15,6 @@
     <tbody>
       <% @supply_deliver.items.each do |i| %>
       <tr>
-        <td><%= i.id %> </td>
         <td><%= i.product_id %> </td>
         <td><%= i.quantity %> </td>
         <td><%= i.unit_per_cost %> </td>
@@ -43,5 +35,3 @@
   </table>
 
 
-<%= link_to 'Edit', edit_supply_deliver_path(@supply_deliver) %> |
-<%= link_to 'Back', supply_delivers_path %>

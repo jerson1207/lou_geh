@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
   def create
     @supply_deliver = SupplyDeliver.find(params[:supply_deliver_id])
-
     @item = @supply_deliver.items.create(item_params)
+    
     redirect_to supply_deliver_path( @supply_deliver)
- 
+
   end
 
   def destroy

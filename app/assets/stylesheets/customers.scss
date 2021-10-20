@@ -1,3 +1,163 @@
-// Place all the styles related to the customers controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.main {
+  width: 100%;
+  margin: 20px;
+}
+
+/*SIDEBAR*/
+.sidebar {
+  margin: 0;
+  // position: fixed;
+/* Change :absolute; to :fixed; to keep the sidebar in place when scolling. */
+  background: #c1c1c1;
+/* Sidebar Background */
+  width: 200px;
+/* Width of side bar. WARNING: If you change this, change .listItemA:width */
+  height: 100%;
+  // padding-top: 10px;
+/* Padding above the sidebar image. */
+  font-family: helvetica;
+/* Font for the sidebar (Remove to keep the same font as the rest of the document) */
+}
+
+.sidebar a {
+  text-decoration: none;
+/* Removes the underline from links. */
+  color: #000;
+/* Text color of the menu items */
+}
+
+.sidebar ul {
+  // line-height: 40px;
+  // overflow: hidden;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.sidebar ul li {
+  list-style-type: none;
+
+  
+/* Background colour of the menu items. */
+  color: #000;
+/* Text colour of the side bar titles. (Not the links). */
+}
+
+.listItemA {
+  height: 40px;
+  width: 200px;
+
+}
+
+.listItemA:hover {
+  left: 0;
+}
+
+// .listItemT {
+//   text-align: center;
+// }
+
+// table
+.table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.table caption {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #9e0e09;
+  font-family: "MADE Soulmaze";
+  padding: 1rem;
+}
+
+.table td, .table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.table tr:nth-child(even){background-color: #f2f2f2;}
+
+.table tr:hover {background-color: #ddd;}
+
+.table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+}
+
+//end of table
+// form
+
+.caption {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #9e0e09;
+  font-family: "MADE Soulmaze";
+  padding: 1rem 0;  
+  // margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+input[type=number] {
+  width: 80%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+textarea {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height: 138px;
+  width: 100%;
+}
+
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  font-size: 2rem;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 1.2rem 2rem;
+  margin: 1rem 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Clear floats after the columns */
+.field:after {
+  content: "";
+  display: table;
+  clear: both;
+}

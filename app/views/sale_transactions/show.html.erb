@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+<%= link_to 'Edit Customer', edit_sale_transaction_path(@sale_transaction) %> 
+
+<table class = "table">
+  <caption><%= @sale_transaction.customer.name %>' Purchase</caption>
+  <thead>
+    <tr>
+      <th>Barcode</th>
+      <th>quantity</th>
+      <th>Cost Per Unit</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sale_transaction.sold_items.each do |i| %>
+    <tr>
+      <td><%= i.product_id%> </td>
+      <td><%= i.quantity %>  </td>
+      <td><%= i.price_per_unit %> </td>
+      <td><%= link_to 'delete', sale_transaction_sold_item_path(i), method: :delete, data: { confirm: 'Are you sure?' } %>  </td>
+    </tr>
+    <% end %>
+
+    </tr>
+      <%= form_with model: [ @sale_transaction, @sale_transaction.sold_items.build ] do |form| %>
+        <td><%= form.select :product_id, options_for_select(@product.map {|c| c.id} ) %></td>
+        <td><%= form.number_field :quantity %></td>
+        <td><%= form.number_field :price_per_unit %></td>
+        <td><%= form.submit 'Add' %></td>
+      <% end %>
+    <tr>
+  </tbody>
+
+</table>
+
+
+
+
