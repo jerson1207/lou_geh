@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
-<%= link_to 'New Company', new_company_path %>
+  <div class="header">
+    Company Record
+    <%= link_to 'New Company', new_company_path, class: 'btn-create' %>
+  </div>
 <table class = "table">
-  <caption>Company Record</caption>
   <thead>
     <tr>
       <th>Unique Code</th>
@@ -27,6 +29,5 @@
   </tbody>
 </table>
 
-<br>
 
 

@@ -1,13 +1,15 @@
 <p id="notice"><%= notice %></p>
+<div class="header"><%= @supply_deliver.company.name %> Delivery Item
+  <%= link_to 'Edit', edit_supply_deliver_path(@supply_deliver), class: 'btn-create' %>
+</div>
 
-<%= link_to 'Edit company name', edit_supply_deliver_path(@supply_deliver) %> |
-<%= link_to 'Back', supply_delivers_path %>
   <table class="table">
-    <caption><%= @supply_deliver.company.name %> Delivery Item</caption>
+    
     <thead>
       <tr>
-        <th>Product Code</th>
-        <th>quantity
+        <th>Description</th>
+        <th>Barcode</th>
+        <th>Quantity
         <th>Cost Per Unit</th>
         <th>Action</th>
       </tr>
@@ -15,6 +17,7 @@
     <tbody>
       <% @supply_deliver.items.each do |i| %>
       <tr>
+        <td><%= @product.find(i.product_id).description %> </td>
         <td><%= i.product_id %> </td>
         <td><%= i.quantity %> </td>
         <td><%= i.unit_per_cost %> </td>
@@ -24,6 +27,7 @@
 
       <tr>
       <%= form_with model: [ @supply_deliver, @supply_deliver.items.build ] do |form| %>
+        <td></td> 
         <td><%= form.select :product_id, options_for_select(@product.map {|c| c.id} ) %></td>
         <td><%= form.number_field :quantity %></td>
         <td><%= form.number_field :unit_per_cost %></td>

@@ -1,10 +1,45 @@
 <p id="notice"><%= notice %></p>
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+
 
 <div class="company_header">
-  <h3>Barcode <%= @product.id %></h3>
-  <h3>Product Description: <%= @product.description %></h3>
+<p>
+  <strong>Barcode: </strong>
+  <%= @product.id %>
+</p> 
+<p> 
+  <strong>Product Description: </strong>
+  <%= @product.description %>
+</p>
 </div>
 
+
+<div class="header">Shipment History
+  <%= link_to 'Edit', edit_product_path(@product), class: 'btn-create' %>
+</div >
+<%# company history %>
+<div class="history">
+  <table class= "table">
+    <thead>
+      
+      <tr>
+        <th>Date</th>
+        <th>Company</th>
+        <th>quantity</th>
+        <th>Unit per price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @supplier.each do |s| %>
+        <% s.items.where(product_id: @product.id).each do |i| %>
+          <tr>
+            <td><%= i.created_at.strftime('%Y-%m-%d') %> </td>
+            <td><%= s.company_id %> </td>
+            <td><%= i.quantity %></td>
+            <td><%= i.unit_per_cost %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 

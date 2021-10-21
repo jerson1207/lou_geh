@@ -1,19 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @customer.name %>
-</p>
 
-<p>
-  <strong>Contact:</strong>
-  <%= @customer.contact %>
-</p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @customer.address %>
-</p>
+<div class="record">
+  <p>
+    <strong>Name:</strong>
+    <%= @customer.name %>
+  </p>
 
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+  <p>
+    <strong>Contact:</strong>
+    <%= @customer.contact %>
+  </p>
+
+  <p>
+    <strong>Address:</strong>
+    <%= @customer.address %>
+  </p>
+</div>
+
+
+<div class="header">Transaction History
+  <%= link_to 'Edit', edit_customer_path(@customer), class: 'btn-create' %> 
+</div>
+<table class="table">
+  
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Barcode</th>
+      <th>Quantity</th>
+      <th>Price Per Unit</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @transaction.each do |t| %>
+    <% t.sold_items.each do |i| %>
+    <tr>
+      <td><%= i.created_at.strftime('%Y-%m-%d') %> </td>
+      <td><%= i.product_id %> </td>
+      <td><%= i.quantity %> </td>
+      <td><%= i.price_per_unit %> </td>
+    </tr>
+    <% end %> 
+  <% end %>  
+  </tbody>
+</table>

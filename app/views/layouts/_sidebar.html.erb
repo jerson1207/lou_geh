@@ -1,8 +1,20 @@
 <ul>
-  <li class="listItemA"><%= link_to "Supply Deliver", root_path %> </li>
-  
-  <li class="listItemA"><%= link_to "Sale Transaction", sale_transactions_path %> </li>
-  <li class="listItemA"><%= link_to "Company Code", companies_path %> </li>
-  <li class="listItemA"><%= link_to "Product Code", products_path %> </li>
-  <li class="listItemA"><%= link_to "Customer Code", customers_path %> </li>
+  <%= link_to root_path do %> 
+    <li class="listItemA">Items</li> 
+  <% end %>
+  <%= link_to supply_delivers_path do %> 
+    <li class="listItemA">Supply Deliver</li> 
+  <% end %>
+  <%= link_to sale_transactions_path do %> 
+    <li class="listItemA">Sale Transaction</li>
+  <% end %>
+  <%= link_to companies_path do %> 
+    <li class="listItemA">Company Code</li>
+  <% end %>
+  <%= link_to products_path  do%> 
+    <li class="listItemA">Product Code</li>
+  <% end %>
+  <%= link_to customers_path do %> 
+    <li class="listItemA">Customer</li>
+  <% end %>
 </ul>

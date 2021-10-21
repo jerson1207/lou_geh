@@ -9,6 +9,7 @@ class SaleTransactionsController < ApplicationController
   # GET /sale_transactions/1 or /sale_transactions/1.json
   def show
     @product = Product.all
+    
   end
 
   # GET /sale_transactions/new

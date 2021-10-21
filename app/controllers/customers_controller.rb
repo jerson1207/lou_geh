@@ -8,6 +8,8 @@ class CustomersController < ApplicationController
 
   # GET /customers/1 or /customers/1.json
   def show
+    @transaction = SaleTransaction.all.where(customer_id: @customer.id)
+    
   end
 
   # GET /customers/new

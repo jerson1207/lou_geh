@@ -1,18 +1,24 @@
 class ItemsController < ApplicationController
   def create
-    @supply_deliver = SupplyDeliver.find(params[:supply_deliver_id])
+    @supply_deliver = SupplyDeliver.find(params[:supply_deliver_id])   
     @item = @supply_deliver.items.new(item_params)
     if @item.save
+      @total = ItemInventory.find(@item.product_id)
+      @total.quantity = @total.quantity + @item.quantity
+      @total.save
       redirect_to supply_deliver_path( @supply_deliver)
     end
   end
 
   def destroy
-    
     @supply_deliver = SupplyDeliver.find(params[:id])
     @item = @supply_deliver.items.find(params[:supply_deliver_id])
-    @item.destroy
-    redirect_to supply_deliver_path( @supply_deliver)
+    if @item.destroy
+      @total = ItemInventory.find(@item.product_id)
+      @total.quantity = @total.quantity - @item.quantity
+      @total.save
+      redirect_to supply_deliver_path( @supply_deliver)
+    end
   end
 
   private

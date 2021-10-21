@@ -1,18 +1,27 @@
 class SoldItemsController < ApplicationController
   def create
     @sale_transaction = SaleTransaction.find(params[:sale_transaction_id])
-    @sold_item = @sale_transaction.sold_items.create(sold_item_params)
+    @sold_item = @sale_transaction.sold_items.new(sold_item_params)
+    if @sold_item.save
+      @total = ItemInventory.find(@sold_item.product_id)
+      @total.quantity = @total.quantity - @sold_item.quantity
+      @total.save
+      redirect_to sale_transaction_path( @sale_transaction)
+    end
    
-    redirect_to sale_transaction_path( @sale_transaction)
  
   end
 
-  def destroy
-    
+  def destroy    
     @sale_transaction = SaleTransaction.find(params[:id])
     @sold_item = @sale_transaction.sold_items.find(params[:sale_transaction_id])
-    @sold_item.destroy
-    redirect_to sale_transaction_path(@sale_transaction)
+    if @sold_item.destroy
+      @total = ItemInventory.find(@sold_item.product_id)
+      @total.quantity = @total.quantity + @sold_item.quantity
+      @total.save
+
+     redirect_to sale_transaction_path(@sale_transaction)
+    end
   end
 
   private

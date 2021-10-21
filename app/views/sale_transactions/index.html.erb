@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
-<%= link_to 'New Sale Transaction', new_sale_transaction_path %>
+<div class="header">Sale Transactions
+
+<%= link_to 'New Sale Transaction', new_sale_transaction_path, class: 'btn-create' %>
+</div>
 <table class="table">
-  <caption>Sale Transactions</caption>
   <thead>
     <tr>
       <th>Customer</th>

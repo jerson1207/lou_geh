@@ -9,7 +9,7 @@ class SupplyDeliversController < ApplicationController
   # GET /supply_delivers/1 or /supply_delivers/1.json
   def show
     @product = Product.all
-  
+    
   end
 
   # GET /supply_delivers/new
@@ -22,6 +22,7 @@ class SupplyDeliversController < ApplicationController
   # GET /supply_delivers/1/edit
   def edit
     @company = Company.all
+    @product = Product.all
   end
 
   # POST /supply_delivers or /supply_delivers.json

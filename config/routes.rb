@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root 'supply_delivers#index'
-  # resources :item_inventories
+  root 'item_inventories#index'
+  resources :item_inventories
   resources :sale_transactions do 
     resources :sold_items
   end
