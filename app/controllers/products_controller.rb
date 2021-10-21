@@ -8,9 +8,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1 or /products/1.json
   def show
-
     @supplier =  SupplyDeliver.all
-
   end
 
   # GET /products/new
