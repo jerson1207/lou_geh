@@ -1,27 +1,11 @@
-<p id="notice"><%= notice %></p>
-
-
-<div class="records">
-  <p>
-    <strong>Campany Name:</strong> 
-    <%= @company.name %>
-  </p>
-  <p>
-    <strong>Contact:</strong> 
-    <%= @company.contact %>
-  </p>
-  <p>
-    <strong>Address:</strong> 
-    <%= @company.address %>
-  </p>
-</div>
-<%# company history %>
-<div class="header">
-  Supply History
-  <%= link_to 'Edit', edit_company_path(@company), class: 'btn-create' %>
-</div>
-<div class="history">
-  <table class= "table">
+<div class="section">
+  <p id="notice"><%= notice %></p>
+  <div class="section-header-view">
+    <h2>Company Name: <span><%= @company.name %></span></h2>
+    <h2>Contact: <span><%= @company.contact %></span></h2>
+    <h2>Address: <span><%= @company.address %></span></h2>
+  </div>
+  <table class= "table" >
     <thead>
       <tr>
         <th>Date</th>
@@ -33,7 +17,7 @@
     <tbody>
     <% @supply.each do |h| %>
       <% h.items.each do |i| %> 
-      <tr>
+      <tr >
         <td><%= h.created_at.strftime('%Y-%m-%d') %> </td>
         <td><%= i.id %></td>
         <td><%= i.quantity %></td>
@@ -42,9 +26,5 @@
       <% end %>
     <% end %>      
     </tbody>
-
-
   </table>
 </div>
-
-

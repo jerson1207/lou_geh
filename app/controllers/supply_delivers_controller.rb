@@ -9,7 +9,6 @@ class SupplyDeliversController < ApplicationController
   # GET /supply_delivers/1 or /supply_delivers/1.json
   def show
     @product = Product.all
-    
   end
 
   # GET /supply_delivers/new
@@ -28,7 +27,6 @@ class SupplyDeliversController < ApplicationController
   # POST /supply_delivers or /supply_delivers.json
   def create
     @supply_deliver = SupplyDeliver.new(supply_deliver_params)
-
     respond_to do |format|
       if @supply_deliver.save
         format.html { redirect_to @supply_deliver, notice: "Supply deliver was successfully created." }
@@ -70,6 +68,6 @@ class SupplyDeliversController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def supply_deliver_params
-      params.require(:supply_deliver).permit(:company_id)
+      params.require(:supply_deliver).permit(:company_id, :date)
     end
 end

@@ -1,28 +1,42 @@
-<p id="notice"><%= notice %></p>
-<div class="header">Sale Transactions
-
-<%= link_to 'New Sale Transaction', new_sale_transaction_path, class: 'btn-create' %>
-</div>
-<table class="table">
-  <thead>
-    <tr>
-      <th>Customer</th>
-      <th>Total Item(s)</th>
-      <th colspan="3">Action</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @sale_transactions.each do |sale_transaction| %>
+<div class="section">
+  <p id="notice"><%= notice %></p>
+  <div class="section-header">
+    <%= link_to 'New Sale Transaction', new_sale_transaction_path, class: 'btn-create' %>
+    <h1>Sale Transaction</h1>
+  </div>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= sale_transaction.customer.name %> </td>
-        <td><%= sale_transaction.sold_items.count %> </td>
-      
-        <td><%= link_to 'Show', sale_transaction %></td>
-        <td><%= link_to 'Edit', edit_sale_transaction_path(sale_transaction) %></td>
-        <td><%= link_to 'Destroy', sale_transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>view</th>
+        <th>Barcode</th>
+        <th>Customer</th>
+        <th>Total Item(s)</th>
+        <th colspan="3">Action</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
+    <tbody>
+      <% @sale_transactions.each do |sale_transaction| %>
+        <tr>
+          <td>
+            <%= link_to sale_transaction_sold_items_path(sale_transaction.id) do %>
+              <i class="far fa-eye"></i>
+            <% end %>
+          </td>
+          <td><%= sale_transaction.customer.id %> </td>
+          <td><%= sale_transaction.customer.name %> </td>
+          <td><%= sale_transaction.sold_items.count %> </td>  
+          <td>
+            <%= link_to edit_sale_transaction_path(sale_transaction) do %>
+              <i class="far fa-edit"></i> 
+            <% end %></td>
+          <td>
+            <%= link_to sale_transaction, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

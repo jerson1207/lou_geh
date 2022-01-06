@@ -1,4 +1,9 @@
 class ItemsController < ApplicationController
+  def index
+    @supply_deliver = SupplyDeliver.find(params[:supply_deliver_id])   
+    @items = @supply_deliver.items.where('quantity > ?', 0)
+  end
+
   def create
     @supply_deliver = SupplyDeliver.find(params[:supply_deliver_id])   
     @item = @supply_deliver.items.new(item_params)

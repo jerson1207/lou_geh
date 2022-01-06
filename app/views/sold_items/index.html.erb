@@ -1,0 +1,31 @@
+<div class="section">
+<p id="notice"><%= notice %></p>
+<div class="section-header-view">
+  <h2>Customer: <%= @sale_transaction.customer.name %></h2>
+</div>
+
+<table class = "table">
+  <thead>
+    <tr>
+      <th>Barcode</th>
+      <th>quantity</th>
+      <th>Cost Per Unit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sale_transaction.sold_items.each do |i| %>
+    <tr>
+      <td><%= i.product_id%> </td>
+      <td><%= i.quantity %>  </td>
+      <td><%= i.price_per_unit %> </td>
+    </tr>
+    <% end %>
+  </tbody>
+
+</table>
+
+
+
+
+
+</div>

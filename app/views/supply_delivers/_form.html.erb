@@ -1,3 +1,4 @@
+<div class="form">
 <%= form_with(model: supply_deliver) do |form| %>
   <% if supply_deliver.errors.any? %>
     <div id="error_explanation">
@@ -17,7 +18,14 @@
     <%= form.select :company_id, options_for_select(@company.map {|c| c.id} ) %>
   </div>
 
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_field :date %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+
+</div>

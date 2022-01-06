@@ -1,4 +1,9 @@
 class SoldItemsController < ApplicationController
+  def index
+    @sale_transaction = SaleTransaction.find(params[:sale_transaction_id])
+    
+  end
+
   def create
     @sale_transaction = SaleTransaction.find(params[:sale_transaction_id])
     @sold_item = @sale_transaction.sold_items.new(sold_item_params)

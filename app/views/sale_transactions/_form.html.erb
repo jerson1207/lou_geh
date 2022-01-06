@@ -1,22 +1,25 @@
-<%= form_with(model: sale_transaction) do |form| %>
-  <% if sale_transaction.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(sale_transaction.errors.count, "error") %> prohibited this sale_transaction from being saved:</h2>
+<div class="form">
+  <%= form_with(model: sale_transaction) do |form| %>
+    <% if sale_transaction.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(sale_transaction.errors.count, "error") %> prohibited this sale_transaction from being saved:</h2>
 
-      <ul>
-        <% sale_transaction.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% sale_transaction.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :customer_id %>
+      <%= form.select :customer_id, options_for_select(@customer.map {|c| c.id} ) %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "Proceed" %>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :customer_id %>
-    <%= form.select :customer_id, options_for_select(@customer.map {|c| c.id} ) %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "Proceed" %>
-  </div>
-<% end %>
+</div>

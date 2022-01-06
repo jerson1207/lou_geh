@@ -1,0 +1,50 @@
+.form {
+  width: 50%;
+  margin: 2rem auto;
+  
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+input[type=number] {
+  width: 80%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+textarea {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height: 138px;
+  width: 100%;
+}
+
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  font-size: 2rem;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 1.2rem 2rem;
+  margin: 1rem 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+}

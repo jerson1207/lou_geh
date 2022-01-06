@@ -1,23 +1,9 @@
-<p id="notice"><%= notice %></p>
-
-
-<div class="company_header">
-<p>
-  <strong>Barcode: </strong>
-  <%= @product.id %>
-</p> 
-<p> 
-  <strong>Product Description: </strong>
-  <%= @product.description %>
-</p>
-</div>
-
-
-<div class="header">Shipment History
-  <%= link_to 'Edit', edit_product_path(@product), class: 'btn-create' %>
-</div >
-<%# company history %>
-<div class="history">
+<div class="section">
+  <p id="notice"><%= notice %></p>
+  <div class="section-header-view">
+    <h2 class="title">Product Description: <span><%= @product.description %></span> </h2>
+    <h2>Barcode: <%= @product.id %></h2>
+  </div>
   <table class= "table">
     <thead>
       
@@ -42,4 +28,3 @@
     </tbody>
   </table>
 </div>
-

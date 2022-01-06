@@ -1,3 +1,16 @@
-<div class="logo">
-  <span>L</span>ou <span>G</span>eh <span>S</span>upermarket
+<div class="navigation">
+  <div class="logo">
+    <span>L</span>ou <span>G</span>eh <span>S</span>upermarket
+  </div>
+  <div class="links">
+    <%= link_to destroy_user_session_path, method: :delete do %>
+      <i class="fas fa-sign-out-alt"></i>
+    <% end %>
+    <% if AdminUser %>
+      <%= link_to admin_root_path do %>
+        <i class="fas fa-user-cog"></i>
+      <% end %>
+    <% end %>
+  </div>
+  
 </div>

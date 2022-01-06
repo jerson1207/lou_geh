@@ -1,20 +1,22 @@
-<ul>
-  <%= link_to root_path do %> 
-    <li class="listItemA">Items</li> 
-  <% end %>
-  <%= link_to supply_delivers_path do %> 
-    <li class="listItemA">Supply Deliver</li> 
-  <% end %>
-  <%= link_to sale_transactions_path do %> 
-    <li class="listItemA">Sale Transaction</li>
-  <% end %>
-  <%= link_to companies_path do %> 
-    <li class="listItemA">Company Code</li>
-  <% end %>
-  <%= link_to products_path  do%> 
-    <li class="listItemA">Product Code</li>
-  <% end %>
-  <%= link_to customers_path do %> 
-    <li class="listItemA">Customer</li>
-  <% end %>
-</ul>
+<div class="sidebar">
+  <ul>
+    <%= link_to root_path do %> 
+      <li class="listItemA">Inventory</li> 
+    <% end %>
+    <%= link_to supply_delivers_path do %> 
+      <li class="listItemA">Supply Deliver</li> 
+    <% end %>
+    <%= link_to sale_transactions_path do %> 
+      <li class="listItemA">Sale Transaction</li>
+    <% end %>
+    <%= link_to companies_path do %> 
+      <li class="listItemA">Company Code</li>
+    <% end %>
+    <%= link_to products_path  do%> 
+      <li class="listItemA">Product Code</li>
+    <% end %>
+    <%= link_to customers_path do %> 
+      <li class="listItemA">Customer Code</li>
+    <% end %>
+  </ul>
+</div>

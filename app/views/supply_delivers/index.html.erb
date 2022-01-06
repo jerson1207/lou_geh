@@ -1,29 +1,48 @@
+<div class="section">
 <p id="notice"><%= notice %></p>
-<div class="header">
-  Supply Delivery
-  <%= link_to 'New Supply Deliver', new_supply_deliver_path, class: 'btn-create' %>
-</div>
+  <div class="section-header">
+    <%= link_to 'New Supply Deliver', new_supply_deliver_path, class: 'btn-create' %>
+    <h1>Supply Delivery</h1>
+  </div>
 <table class = "table">
   <thead>
     <tr>
+      <th>View</th>
+      <th>date</th>
       <th>Unique Code</th>
       <th>Company</th>
       <th>Total Item(s)</th>
-      <th colspan="3"></th>
+      <th colspan="2">action</th>
     </tr>
   </thead>
 
   <tbody>
     <% @supply_delivers.each do |supply_deliver| %>
       <tr>
-        <td><%= supply_deliver.company_id %></td>
-        <td><%= supply_deliver.company.name %></td>
-        <td><%= supply_deliver.items.count %></td>
-        <td><%= link_to 'View Item', supply_deliver %></td>
-        <td><%= link_to 'Edit Name', edit_supply_deliver_path(supply_deliver) %></td>
-        <td><%= link_to 'Destroy', supply_deliver, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to supply_deliver_items_path(supply_deliver.id) do %>
+            <i class="far fa-eye"></i>
+          <% end %>
+        </td>
+          <td><%= supply_deliver.date %></td>
+          <td><%= supply_deliver.company_id %></td>
+          <td><%= supply_deliver.company.name %></td>
+          <td><%= supply_deliver.items.where("quantity > ?", 0).count %></td>
+          
+        <td>
+          <%= link_to edit_supply_deliver_path(supply_deliver) do %>
+            <i class="far fa-edit"></i>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to supply_deliver, method: :delete, data: { confirm: 'Are you sure?' } do %>\
+            <i class="far fa-trash-alt"></i>
+          <% end %>  
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+
+</div>

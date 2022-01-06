@@ -1,0 +1,31 @@
+<div class="section">
+  <div class="section-header-view">
+    <h2>Company: <span><%= @supply_deliver.company.name %></span></h2>
+    <h2>Delivery Date: <span><%= @supply_deliver.date %></span></h2>
+  
+  </div>
+
+  <table class = "table">
+    <thead>
+      <tr>
+        <th>Unique Code</th>
+        <th>Product</th>
+        <th>quantity</th>
+        <th>Unit per cost</th>
+        <th colspan="4"></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @items.each do |i| %>
+      <tr>
+        <td><%= i.product_id %></td>
+        <td><%= product_name(i.product_id) %></td>
+        <td><%= i.quantity %></td>
+        <td><%= i.unit_per_cost %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+
+</div>

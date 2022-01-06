@@ -1,3 +1,7 @@
-<%= render 'form', sale_transaction: @sale_transaction %>
-
-<%= link_to 'Back', sale_transactions_path %>
+<div class="section">
+  <div class="section-header">
+    <%= link_to 'Back', sale_transactions_path, class: "btn-back" %>
+    <h1>Create Transaction</h1>
+  </div>
+  <%= render 'form', sale_transaction: @sale_transaction %>
+</div>

@@ -1,10 +1,11 @@
-<p id="notice"><%= notice %></p>
-<div class="header"><%= @supply_deliver.company.name %> Delivery Item
-  <%= link_to 'Edit', edit_supply_deliver_path(@supply_deliver), class: 'btn-create' %>
-</div>
-
+<div class="section">
+  
+  <div class="section-header-view">
+    <h2 class="title">Company: <span><%= @supply_deliver.company.name %></span></h2>
+    <h2>Delivery Date: <span><%= @supply_deliver.date %></span></h2>
+  </div>
   <table class="table">
-    
+    <caption>Items</caption>
     <thead>
       <tr>
         <th>Description</th>
@@ -20,22 +21,29 @@
         <td><%= @product.find(i.product_id).description %> </td>
         <td><%= i.product_id %> </td>
         <td><%= i.quantity %> </td>
-        <td><%= i.unit_per_cost %> </td>
+        <td><%= i.unit_per_cost.to_i %> </td>
         <td><%= link_to 'delete', supply_deliver_item_path(i), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
       <% end %>
 
       <tr>
       <%= form_with model: [ @supply_deliver, @supply_deliver.items.build ] do |form| %>
-        <td></td> 
+        <td>
+          <%= link_to supply_deliver_items_path(@supply_deliver.id) do %>
+            <button class="done">Done</button>
+          <% end %>
+        </td> 
         <td><%= form.select :product_id, options_for_select(@product.map {|c| c.id} ) %></td>
         <td><%= form.number_field :quantity %></td>
         <td><%= form.number_field :unit_per_cost %></td>
         <td><%= form.submit 'Add' %></td>
       <% end %>
+
       </tr>
     </tbody>
   
   </table>
+  
 
-
+<%# link_to 'Edit', edit_supply_deliver_path(@supply_deliver), class: 'btn-create' %>
+</div>

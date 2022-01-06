@@ -1,8 +1,10 @@
+<div class="section">
 <p id="notice"><%= notice %></p>
-<%= link_to 'Edit Customer', edit_sale_transaction_path(@sale_transaction) %> 
+<div class="section-header-view">
+  <h2>Customer: <%= @sale_transaction.customer.name %></h2>
+</div>
 
 <table class = "table">
-  <caption><%= @sale_transaction.customer.name %>' Purchase</caption>
   <thead>
     <tr>
       <th>Barcode</th>
@@ -36,3 +38,5 @@
 
 
 
+
+</div>
